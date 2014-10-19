@@ -15,9 +15,9 @@ div.scroll {
 
 #page {
 	width: 1000px;
-	margin:0 auto;			
+	margin:0 auto;
 	padding: 10px;
-	text-align:left; /* "remédio" para o hack do IE */	
+	text-align:left;
 }
 
 #conteudoGeral {
@@ -31,10 +31,6 @@ div.scroll {
 	margin-bottom: 2px;
 }
 
-#conteudo {
-
-}
-
 #left {
 	border-radius: 5px;
 	background-color: GREY;
@@ -43,7 +39,6 @@ div.scroll {
 	margin-top: 2px;
 	margin-left: 20px;
 	height: 560px;
-	/*width: 692px;*/
 }
 
 #scoreboard {
@@ -62,7 +57,6 @@ div.scroll {
 	margin-right: 20px;
 	margin-top: 2px;
 	margin-left: 5px;
-	/*height: 560px;*/
 	height: auto;
 }
 
@@ -74,9 +68,7 @@ div.scroll {
 	margin-right: 20px;
 	margin-left: 5px;
 	margin-bottom: 10px;
-	/*text-align: center;*/
 	width: 200px;
-	/*height: 560px;*/
 	min-height:198px;
 	color: black;
 	padding-left: 2px;
@@ -89,9 +81,7 @@ div.scroll {
 	height: 400px;
 	margin-right: 20px;
 	margin-left: 5px;
-	/*text-align: center;*/
 	width: 200px;
-	/*height: 560px;*/
 	height: auto;
 	min-height:198px;
 	color: black;
@@ -104,9 +94,7 @@ div.scroll {
 	height: 212px;
 	margin-right: 20px;
 	margin-left: 5px;
-	/*text-align: center;*/
 	width: 200px;
-	/*height: 560px;*/
 	color: black;
 }
 
@@ -118,9 +106,7 @@ div.scroll {
 	margin-right: 20px;
 	margin-left: 5px;
 	margin-bottom: 260px;
-	/*text-align: center;*/
 	width: 200px;
-	/*height: 560px;*/
 	color: black;
 }
 
@@ -131,14 +117,14 @@ div.scroll {
 
 #scores {
 	margin-left: 10px;
-	
+
 }
 
 #legenda {
 	display: block;
 }
 
-div.legenda { 
+div.legenda {
 	border-radius: 5px;
 	float: left;
 	height: 20px;
@@ -148,8 +134,8 @@ div.legenda {
 	width: 20px;
 	color: black;
 }
-	
-div.legenda_text { 
+
+div.legenda_text {
 	height: 20px;
 	margin-left: 2px;
 	margin-top: 25px;
@@ -157,33 +143,33 @@ div.legenda_text {
 	float: left;
 	text-align: center;
 }
-	
-.pontuacao_selected{ 
+
+.pontuacao_selected{
 	border: 2px solid black;
 	border-color: #0074CC;
-}	
+}
 
-.pontuacao_correct { 
+.pontuacao_correct {
 	border: 2px solid #00BD00;
 	background-color: #00BD00;
 }
 
-.pontuacao_no_answer { 
+.pontuacao_no_answer {
 	border: 2px solid #E0E0E0;
 	background-color: #E0E0E0;
 }
 
-.pontuacao_closed{ 
+.pontuacao_closed{
 	border: 2px solid #E0E0E0;
 	border-color: #E0E0E0;
 }
 
-.pontuacao_closed:hover{ 
+.pontuacao_closed:hover{
 	border: 2px solid black;
 	border-color: #E0E0E0;
 }
 
-.pontuacao_can_open{ 
+.pontuacao_can_open{
 	border: 2px solid gold;
 }
 
@@ -200,7 +186,7 @@ div.exampleborderradiusa.pontuacao_no_answer:hover{
 	border-color: #0074CC;
 }
 
-.exampleborderradiusatop { 
+.exampleborderradiusatop {
 	color: white;
 	font-size: 20px;
 	position: relative;
@@ -208,14 +194,14 @@ div.exampleborderradiusa.pontuacao_no_answer:hover{
 	border: 2px solid black;
 }
 
-.exampleborderradiusa { 
+.exampleborderradiusa {
 	color: black;
 	font-size: 20px;
 	position: relative;
 	top: 20px;
 }
 
-div.exampleborderradiusa { 
+div.exampleborderradiusa {
 	border-radius: 5px;
 	float: left;
 	height: 65px;
@@ -227,7 +213,7 @@ div.exampleborderradiusa {
 	width: 150px;
 }
 
-div.exampleborderradiusatop { 
+div.exampleborderradiusatop {
 	border-radius: 5px;
 	float: left;
 	height: 65px;
@@ -239,7 +225,7 @@ div.exampleborderradiusatop {
 	width: 150px;
 }
 
-div.group { 
+div.group {
 	border-radius: 5px;
 	float: left;
 	height: 500px;
@@ -250,7 +236,7 @@ div.group {
 	text-align: center;
 	width: 150px;
 }
-.pontuacao_header { 
+.pontuacao_header {
 	background-color: BLACK;
 }
 
