@@ -27,7 +27,7 @@ exports.checkRegistration = function(req, res) {
 	else if((teamName != "") && (teamPassword != "" )) {
 		connections.connection.query('SELECT * FROM teams WHERE ?', {name: teamName}, function(err, result) {
 			if (result[0]) {
-				res.render('session/register', {title: config.brand + " Registration", message:"Team name already taken"});
+				res.render('session/register', {title: config.brand + " Registration", message:"Team name already taken", config: config});
 			} else {
 				connections.connection.query('INSERT INTO teams SET ?', {name: teamName, description: req.body.description, password: password, administrationLevel: 0}, function(err, result) {
 					if (err) console.log(err);
