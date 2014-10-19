@@ -1,34 +1,34 @@
 $(document).ready(function() {
-	
+
 	//console.log('consigo aceder var level1 - '+level1);
-	
+
 	var level1 = 0;
 	var level2 = 0;
 	var level3 = 0;
-	
+
 	var selectedGroup =-1;
 	var selectedProblem =-1;
 	var selectedId;
-	
+
 	var socket = io.connect(null, {
 	  'reconnect': true,
 	  'reconnection delay': 250,
 	  'max reconnection attempts': 100
 	});
-	
+
 	$('#problem_description').hide();
 	$('#answerInput').hide();
 	$('#submitAnswer').hide();
 	$('#feedback').hide();
-	
+
 	socket.on('reconnect', function (data) {
 		window.location.reload(true);
 	});
-	
+
 	socket.on('start', function (data) {
 		window.location.reload(true);
 	});
-	
+
 	socket.on('uCanOpen', function (data) {
 		//console.log(data);
 		level1 = data.level1;
@@ -52,10 +52,10 @@ $(document).ready(function() {
 					jQuery(this).addClass("pontuacao_closed");
 				}
 			}
-			
+
 		});
 	}
-	
+
 	socket.on('globalMessage', function (data) {
 		$().toastmessage('showToast', {
 			text     : data.message,
@@ -63,16 +63,16 @@ $(document).ready(function() {
 			type     : 'notice'
 		});
 	});
-	
+
 	socket.on('answers', function (data) {
-		if(snd){
+		/*if(snd){
 			snd.pause();
-		}
+		}*/
 		$('#newstext').append('<p>'+data.correct+'</p>');
 		$('#newsscroll').scrollTo( '100%', 10 , {
 			axis:'y'
 		});
-		
+
 		var teamid = data.teamid;
 		var group = data.group;
 		var problema = data.problem;
@@ -81,7 +81,7 @@ $(document).ready(function() {
 			if(correct){
 				document.getElementById("feedback").innerHTML ='<p style=\'color:lightgreen;\'>Correct.</p>';
 				$('#feedback').addClass("success");
-				//$("#myModal").effect("highlight", {color: 'green'}, 3000); 
+				//$("#myModal").effect("highlight", {color: 'green'}, 3000);
 				$("div#"+group+''+problema).removeClass("pontuacao_no_answer");
 				$("div#"+group+''+problema).removeClass("pontuacao_selected");
 				$("div#"+group+''+problema).addClass("pontuacao_correct");
@@ -94,7 +94,7 @@ $(document).ready(function() {
 		}
 	});
 
-	
+
 	socket.on('leader', function (data) {
 		var leaderBoard = "";
 		for(var i = 0; data.teams[i]; i++){
@@ -110,11 +110,11 @@ $(document).ready(function() {
 				leaderBoard +='<p>'+name+' - '+points+'</p>';
 			}
 		}
-		
+
 		document.getElementById("scores").innerHTML = leaderBoard;
 	});
-	
-	socket.on('activateProblem', function (data) {	
+
+	socket.on('activateProblem', function (data) {
 		$("div#"+data.group+''+data.problem).removeClass("pontuacao_can_open");
 		$("div#"+data.group+''+data.problem).removeClass("pontuacao_closed");
 		$('#'+data.group+''+data.problem).addClass("pontuacao_no_answer");
@@ -125,8 +125,8 @@ $(document).ready(function() {
 			type     : 'notice'
 		});
 	});
-	
-	socket.on('problemDefinition', function (data) {	
+
+	socket.on('problemDefinition', function (data) {
 		var group = data.group;
 		var problema = data.problem;
 		var open = data.open;
@@ -150,7 +150,7 @@ $(document).ready(function() {
 			}
 		}
 	});
-	
+
 
 	$('div.exampleborderradiusa').each(function(index) {
 		var id = jQuery(this).attr("id");
@@ -158,7 +158,7 @@ $(document).ready(function() {
 		var problem = jQuery(this).attr("problem");
 		problemClick(id, group, problem);
 	});
-	
+
 	function problemClick(id, group, problem){
 		$('#'+id).click(function(event) {
 			$('#answerInput').hide();
@@ -181,7 +181,7 @@ $(document).ready(function() {
 			}
 		});
 	}
-	
+
 	$("#submitAnswer").click(function(event) {
 		event.preventDefault();
 		document.getElementById("feedback").innerHTML ='<p>Waiting Response.</p>';
@@ -189,7 +189,7 @@ $(document).ready(function() {
 		$('#submitAnswer').attr("disabled", true);
 	});
 
-	
+
 	function clearSelected(){
 		$('div.exampleborderradiusa').each(function(index) {
 			var thisId = jQuery(this).attr("id");
@@ -197,7 +197,3 @@ $(document).ready(function() {
 		});
 	}
 });
-
-
-
- 
