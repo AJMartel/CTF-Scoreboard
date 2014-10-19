@@ -3,7 +3,7 @@
  * GET home page.
  */
 
- var mysql      = require('mysql');
+ var mysql = require('mysql');
  var util = require('util');
  var connections = require('../DB/db.js');
  var config = require('../config.js');
@@ -25,14 +25,13 @@ connections.connection.on('error', function(err) {
     connections.connection = mysql.createConnection(connections.connection.config);
 });
 
+
+
+
 exports.answer= function(req, res){
 	console.log('Revieved an answer');
 	console.log(req.body);
-
 }
-
-
-
 
 exports.score = function(req, res){
 	var sqlGrupos = 'SELECT * FROM torneio.grupos_problemas';

@@ -496,7 +496,7 @@ function verifyAnswer(socket, teamname, teamid, group, problem, answer){
 										somapontos = rowsProblems[0].points;
 									}
 									var queryInsertLogCorrect ='INSERT INTO teams_log (idteams ,data ,resposta ,correct ,idgrupos_problemas,idproblemas,sum_of_points) '
-												+' VALUES (?,NOW(),\'?\',?,?,?,?)';
+												+' VALUES (?,NOW(),?,?,?,?,?)';
 									var query = connections.connection.query(queryInsertLogCorrect, [teamid, answer, 1, group, problem, somapontos], function(err, result) {
 										if(err){
 											util.log(err);
@@ -549,7 +549,7 @@ function verifyAnswer(socket, teamname, teamid, group, problem, answer){
 											soma = result[0].points1;
 										}
 										var queryInsertLogFalse ='INSERT INTO teams_log (idteams ,data ,resposta ,correct ,idgrupos_problemas,idproblemas,sum_of_points) '
-											+' VALUES (?,NOW(),\'?\',?,?,?,?)';
+											+' VALUES (?,NOW(),?,?,?,?,?)';
 										var query = connections.connection.query(queryInsertLogFalse, [teamid, answer, 0, group, problem, soma], function(err, result) {
 											if(err){
 												util.log('Error inserting answer in DB -> '+err);
