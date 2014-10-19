@@ -264,3 +264,8 @@ div.group {
 	font-size: 12px;
 	color: #5E5E5E;
 }
+
+.navbar .container {
+	width: auto;
+	height: 40px;
+}
