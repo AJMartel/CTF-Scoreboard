@@ -515,7 +515,7 @@ function verifyAnswer(socket, teamname, teamid, group, problem, answer){
 														else{
 															if((rowsProblems[0].level+1) <= 4){
 																var msg = 'Congrats, u can now open a problem from level '+(rowsProblems[0].level+1)+'.';
-																socket.emit('globalMessage', { message: msg, sticky: false});
+																socket.emit('globalMessage', { message: msg, sticky: true});
 																socket.emit('uCanOpen', { level1: rowsuCanOpen[0].problems_to_open_level_1,  level2: rowsuCanOpen[0].problems_to_open_level_2, level3: rowsuCanOpen[0].problems_to_open_level_3});
 															}
 															connections.connection.query(sqlTeamSumOfPoints, [teamid], function(errTeamSumOfPoints, rowsTeamSumOfPoints, fieldsTeamSumOfPoints) {
