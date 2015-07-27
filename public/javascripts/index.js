@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var socket = io.connect();
-		
+
 	socket.on('globalMessage', function (data) {
 		$().toastmessage('showToast', {
 			text     : data.message,
@@ -8,25 +8,25 @@ $(document).ready(function() {
 			type     : 'notice'
 		});
 	});
-	
+
 	socket.on('start', function (data) {
 		window.location.reload(true);
 	});
-	
+
 	socket.on('reconnect', function (data) {
 		window.location.reload(true);
 	});
-	
-	socket.on('activateProblem', function (data) {	
+
+	socket.on('activateProblem', function (data) {
 		$("div#"+data.group+''+data.problem).removeClass("pontuacao_closed");
 		$('#'+data.group+''+data.problem).addClass("pontuacao_no_answer");
 		$().toastmessage('showToast', {
-			text     : 'le wild problem appeared..',
+			text     : 'The intruder left another cellphone',
 			sticky   : false,
 			type     : 'notice'
 		});
 	});
-	
+
 	socket.on('answers', function (data) {
 		var teamid = data.teamid;
 		var teamname = data.teamname;
@@ -40,9 +40,9 @@ $(document).ready(function() {
 		var timezone_delay = -myDate.getTimezoneOffset()*60*1000;
 		myDate = new Date(myDate.getTime() + timezone_delay);
 		var found = false;
-		
+
 		//console.log('Recebi pontos da team '+teamid+ ' - '+teamname+' - pontos '+sum_of_points+' data- '+myDate);
-		
+
 		for(var i = 0; chart.series[i]; i++){
 			if(chart.series[i].options.id == teamid){
 				if (!sum_of_points){
@@ -50,8 +50,8 @@ $(document).ready(function() {
 				}
 				found = true;
 				//console.log(chart.series[i].legendItem);
-				var el = $(chart.series[i].legendItem.element); 
-				el.text(teamname+' - '+sum_of_points);
+				var el = $(chart.series[i].legendItem.element);
+				el.text(teamname);
 				var myCss = function(){el.css("font-size","12px")};
 				myCss();
 				el.hover(myCss).click(myCss);
@@ -64,7 +64,7 @@ $(document).ready(function() {
 			$("div#"+group+''+problema).addClass("pontuacao_correct");
 		}
 	});
-	
+
 	socket.on('leader', function (data) {
 		var leaderBoard = "";
 		for(var i = 0; data.teams[i]; i++){
@@ -74,13 +74,13 @@ $(document).ready(function() {
 				points = data.teams[i].points;
 			}
 			if(data.teams[i].idteams == $('#teamId').attr("team")){
-				leaderBoard +='<p style=\'color: white;\'>'+name+' - '+points+'</p>';
+				leaderBoard +='<p style=\'color: white;\'>'+name+'</p>';
 			}
 			else{
-				leaderBoard +='<p>'+name+' - '+points+'</p>';
+				leaderBoard +='<p>'+name</p>';
 			}
 		}
-		
+
 		document.getElementById("scores").innerHTML = leaderBoard;
 	});
 });
