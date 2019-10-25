@@ -6,17 +6,17 @@
     , "email": "49thsd@gmail.com"
   }
   , "dependencies": {
-      "express": "2.5.8"
+      "express": "3.11.0"
     , "jade": "0.26.3"
     , "connect-redis": "1.4.0"
     , "cookie": "0.0.4"
-    , "mysql": "2.0.0-alpha3"
+    , "mysql": "2.14.0"
     , "node_hash": "0.2.0"
     , "passport": "0.1.10"
     , "passport-local": "0.1.3"
     , "randomstring": "1.0.1"
     , "redis": "0.7.2"
-    , "socket.io": "0.9.6"
+    , "socket.io": "1.0.1"
     , "validator": "3.19.1"
   }
 }
